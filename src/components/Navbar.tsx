@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
 
   return (
     <header>
-      <nav className="fixed w-full px-4 md:px-10 py-5">
+      <nav className="fixed w-full opacity-95 bg-zinc-50  backdrop-blur-xl px-4 md:px-10 py-5">
         <div className="flex justify-between items-center">
           <div>
             <h2 className="font-sans text-2xl font-bold text-gray-900">
