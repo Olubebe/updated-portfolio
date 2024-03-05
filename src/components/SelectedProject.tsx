@@ -88,18 +88,20 @@ const data: Project[] = [
 const SelectedProject = () => {
   return (
     <div className="bg-zinc-50">
-      <div className=" py-10 px-10">
+      <div className=" py-10 px-20">
         <h2 className="font-serif text-4xl font-medium">Selected Projects</h2>
       </div>
-      <div className="flex flex-col md:flex-row flex-wrap justify-between  items-center w-full py-20 px-10 ">
+      <section className="flex flex-col md:flex-row flex-wrap justify-between  items-center w-full py-20 px-10 ">
         {data.map((project, index) => (
           <div key={index} className=" basis-3/6 mt-5">
             <div className="w-11/12 h-11/12 relative">
-              <img
-                className="w-full h-full border-2 cursor-pointer border-zinc-200 bg-cover transition-transform ease-in-out delay-150  hover:scale-105 duration-300 "
-                src={project.image}
-                alt="img"
-              />
+              <div className="w-full h-full relative overflow-hidden">
+                <img
+                  className="w-full h-full object-cover hover:scale-105 transition duration-300 cursor-pointer"
+                  src={project.image}
+                  alt="img"
+                />
+              </div>
 
               <div className="absolute bottom-4 right-4 flex gap-5 items-center">
                 <a
@@ -146,7 +148,7 @@ const SelectedProject = () => {
             </div>
           </div>
         ))}
-      </div>
+      </section>
     </div>
   );
 };

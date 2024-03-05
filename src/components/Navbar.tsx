@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { MdClose } from "react-icons/md";
 import { AnimatePresence, motion } from "framer-motion";
 
+import CV from "../assets/oluwibefaithcv.pdf";
+
 interface MobileNavLinkProps {
   customTitle: string;
   customHref: string;
+  target?: string;
 }
 
 const Navbar: React.FC = () => {
@@ -54,12 +58,15 @@ const Navbar: React.FC = () => {
 
   return (
     <header>
-      <nav className="fixed w-full opacity-95 bg-zinc-50  backdrop-blur-xl px-4 md:px-10 py-5">
+      <nav className="fixed w-full opacity-95 bg-zinc-50 z-30  backdrop-blur-xl px-4 md:px-10 py-5">
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="font-sans text-2xl font-bold text-gray-900">
-              OluwibeFaith
-            </h2>
+            <Link
+              to="/"
+              className="font-sans cursor-pointer text-xl font-medium text-gray-900"
+            >
+              Oluwibe Faith
+            </Link>
           </div>
           <div className="lg:hidden">
             <div
@@ -70,18 +77,35 @@ const Navbar: React.FC = () => {
             </div>
           </div>
           <div className="hidden lg:flex items-center gap-5">
-            <p className="font-serif cursor-pointer text-sm text-gray-500 hover:text-gray-900 transition ease-in-out font-semibold">
-              WORK
-            </p>
-            <p className="font-serif cursor-pointer text-sm text-gray-500 hover:text-gray-900 transition ease-in-out font-semibold">
+            <Link
+              to="/projects
+              "
+              className="font-serif cursor-pointer text-sm text-gray-500 hover:text-gray-900 transition ease-in-out font-semibold"
+            >
+              PROJECTS
+            </Link>
+            <Link
+              to="/about"
+              className="font-serif cursor-pointer text-sm text-gray-500 hover:text-gray-900 transition ease-in-out font-semibold"
+            >
               ABOUT
-            </p>
-            <p className="font-serif cursor-pointer text-sm text-gray-500 hover:text-gray-900 transition ease-in-out font-semibold">
+            </Link>
+            <Link
+              to={CV}
+              target="_blank"
+              className="font-serif cursor-pointer text-sm text-gray-500 hover:text-gray-900 transition ease-in-out font-semibold"
+            >
               RESUME
-            </p>
-            <button className="font-serif cursor-pointer text-sm py-3 px-6 bg-gray-950 hover:bg-gray-800 transition ease-in-out text-white font-semibold">
-              EMAIL
-            </button>
+            </Link>
+            <Link
+              to="mailto:faitholuwibe@gmail.com?subject=Welcome"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="font-serif cursor-pointer text-sm py-3 px-6 bg-gray-950 hover:bg-gray-800 transition ease-in-out text-white font-semibold">
+                EMAIL
+              </button>
+            </Link>
           </div>
         </div>
         <AnimatePresence>
@@ -113,12 +137,24 @@ const Navbar: React.FC = () => {
                   className="flex flex-col h-full justify-center font-serif items-center gap-4 "
                 >
                   <div className="overflow-hidden space-y-5 font-serif ">
-                    <MobileNavLink customTitle="WORK" customHref="/" />
-                    <MobileNavLink customTitle="ABOUT" customHref="#" />
-                    <MobileNavLink customTitle="RESUME" customHref="#" />
-                    <button className="font-serif  cursor-pointer text-4xl py-3 px-10 bg-gray-950 hover:bg-gray-800 transition ease-in-out text-white ">
-                      EMAIL
-                    </button>
+                    <MobileNavLink
+                      customTitle="PROJECTS"
+                      customHref="/projects"
+                    />
+                    <MobileNavLink customTitle="ABOUT" customHref="/about" />
+                    <MobileNavLink
+                      customTitle="RESUME"
+                      customHref={CV}
+                      target="_blank"
+                    />
+                    <a
+                      href="mailto:faitholuwibe@gmail.com?subject=Welcome"
+                      rel="noopener noreferrer"
+                    >
+                      <button className="font-serif cursor-pointer text-sm py-3 px-6 bg-gray-950 hover:bg-gray-800 transition ease-in-out text-white font-semibold">
+                        EMAIL
+                      </button>
+                    </a>
                   </div>
                 </motion.div>
               </div>
@@ -155,12 +191,12 @@ const MobileNavLink: React.FC<MobileNavLinkProps> = ({
       variants={mobileLinkVars}
       className="text-5xl uppercase  text-black"
     >
-      <a
+      <Link
         className="font-serif text-gray-900 hover:text-gray-600 transition ease-in-out"
-        href={customHref}
+        to={customHref}
       >
         {customTitle}
-      </a>
+      </Link>
     </motion.div>
   );
 };
