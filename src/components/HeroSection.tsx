@@ -1,6 +1,6 @@
 import { MdArrowDownward } from "react-icons/md";
 import SelectedProject from "./SelectedProject";
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 const HeroSection = () => {
   const targetRef = useRef<null | HTMLDivElement>(null);
