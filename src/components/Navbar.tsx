@@ -119,9 +119,9 @@ const Navbar: React.FC = () => {
             >
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">
-                  <h1 className="text-2xl text-black font-sans">
+                  <Link to="/" className="text-2xl text-black font-sans">
                     OluwibeFaith
-                  </h1>
+                  </Link>
                   <p
                     className="cursor-pointer text-md text-black"
                     onClick={toggleMenu}
