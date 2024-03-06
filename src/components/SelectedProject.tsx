@@ -67,7 +67,7 @@ const data: Project[] = [
     id: 6,
     image:
       "https://res.cloudinary.com/olubebe/image/upload/v1709317335/image6_mto2cy.png",
-    title: "Resturant Website",
+    title: "Restaurant Website",
     description: "Relaxed restaurant and bar with delicious food and drinks.",
     stack: "HTML, CSS, JavaScript",
     github: "https://github.com/Olubebe/restuarant-landing-page",

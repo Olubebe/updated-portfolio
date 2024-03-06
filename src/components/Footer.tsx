@@ -40,15 +40,17 @@ const Footer = () => {
                 amazing together
               </span>
             </h2>
-            <a
-              href="mailto:faitholuwibe@gmail.com?subject=Welcome"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="font-serif cursor-pointer text-sm py-3 px-6 bg-gray-950 hover:bg-gray-800 transition ease-in-out text-white font-semibold">
-                EMAIL
-              </button>
-            </a>
+            <div>
+              <a
+                href="mailto:faitholuwibe@gmail.com?subject=Welcome"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="font-serif cursor-pointer text-sm py-3 px-6 bg-gray-950 hover:bg-gray-800 transition ease-in-out text-white font-semibold">
+                  EMAIL
+                </button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
