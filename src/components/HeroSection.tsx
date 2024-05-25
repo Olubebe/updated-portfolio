@@ -37,7 +37,7 @@ const HeroSection = () => {
           <motion.h2
             className="font-cursive md:text-5xl text-lg max-w-xl leading-loosed font-bold mt-5"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0, x: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             Where beautiful interfaces meet{" "}
