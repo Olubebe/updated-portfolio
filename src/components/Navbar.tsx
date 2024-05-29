@@ -4,6 +4,7 @@ import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { MdClose } from "react-icons/md";
 import { AnimatePresence, motion } from "framer-motion";
 
+
 import CV from "../assets/oluwibefaithcv.pdf";
 
 interface MobileNavLinkProps {

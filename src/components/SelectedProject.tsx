@@ -1,4 +1,5 @@
 import { FaGithub } from "react-icons/fa";
+import SectionAnimation from "../ui/SectionAnimation";
 
 type Project = {
   id: number;
@@ -92,7 +93,7 @@ const SelectedProject = () => {
       </div>
       <section className="flex flex-col md:flex-row flex-wrap justify-between  items-center w-full py-20 px-10 ">
         {data.map((project, index) => (
-          <div key={index} className=" basis-3/6 mt-5">
+          <SectionAnimation key={index} className=" basis-3/6 mt-5">
             <div className="w-11/12 h-11/12 relative">
               <div className="w-full h-full relative overflow-hidden">
                 <img
@@ -145,7 +146,7 @@ const SelectedProject = () => {
                 {project.stack}
               </p>
             </div>
-          </div>
+          </SectionAnimation>
         ))}
       </section>
     </div>
