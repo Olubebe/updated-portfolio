@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import SelectedProjects from "./components/SelectedProject";
+import DetailedProjectPage from "./components/DetailedProjectPage";
 import About from "./components/About";
 import NotFound from "./components/NotFound";
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HeroSection />} />
         <Route path="/projects" element={<SelectedProjects />} />
+        <Route path="/project/:id" element={<DetailedProjectPage />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
