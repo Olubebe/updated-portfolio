@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // Assume we have a getProjectById function to fetch project details
-import { getProjectById, ProjectType } from "../projectUtils";
+import { getProjectById } from "../projectUtils";
 
 const DetailedProjectPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
