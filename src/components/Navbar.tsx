@@ -72,7 +72,7 @@ const NavLink: React.FC<NavLinkProps> = ({
     to={href}
     onClick={onClick}
     target={target}
-    className={`cursor-pointer text-gray-500 hover:text-gray-900 transition ease-in-out font-semibold ${className}`}
+    className={`cursor-pointer text-gray-500 hover:text-gray-900 transition duration-300 ease-in-out font-semibold ${className}`}
   >
     {title}
   </Link>
@@ -83,7 +83,7 @@ const EmailButton: React.FC = () => (
     to="mailto:faitholuwibe@gmail.com?subject=Welcome"
     target="_blank"
     rel="noopener noreferrer"
-    className="font-serif text-sm py-3 px-6 bg-gray-950 hover:bg-gray-800 transition ease-in-out text-white font-semibold"
+    className="font-serif text-sm py-3 px-6 bg-gray-950 hover:bg-gray-800 transition duration-300 ease-in-out text-white font-semibold"
   >
     EMAIL
   </Link>
@@ -94,35 +94,65 @@ const MobileMenu: React.FC<{
   toggleMenu: () => void;
   navLinks: NavLinkProps[];
 }> = ({ isOpen, toggleMenu, navLinks }) => {
+  // Smoother menu slide-in animation
   const menuVars = {
-    initial: { scaleY: 0 },
+    initial: {
+      scaleY: 0,
+      opacity: 0,
+    },
     animate: {
       scaleY: 1,
-      transition: { duration: 0.5, ease: [0.12, 0, 0.39, 0] },
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: [0.33, 1, 0.68, 1], // Cubic bezier for smoother, more natural feel
+      },
     },
     exit: {
       scaleY: 0,
-      transition: { delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+        ease: [0.33, 0, 0.67, 0],
+      },
     },
   };
 
+  // Staggered animation for menu items
   const containerVars = {
-    initial: { transition: { staggerChildren: 0.09, staggerDirection: -1 } },
+    initial: {
+      transition: {
+        staggerChildren: 0.07,
+        staggerDirection: -1,
+      },
+    },
     open: {
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.09,
+        delayChildren: 0.2, // Slight delay for better visual flow
+        staggerChildren: 0.07,
         staggerDirection: 1,
       },
     },
   };
 
+  // Improved animation for individual menu links
   const mobileLinkVars = {
     initial: {
-      y: "30vh",
-      transition: { duration: 0.5, ease: [0.37, 0, 0.63, 1] },
+      y: 40,
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut",
+      },
     },
-    open: { y: 0, transition: { ease: [0, 0.55, 0.45, 1], duration: 0.7 } },
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        ease: "easeOut",
+        duration: 0.4,
+      },
+    },
   };
 
   return (
@@ -137,16 +167,27 @@ const MobileMenu: React.FC<{
         >
           <div className="flex flex-col h-full">
             <div className="flex justify-between items-center">
-              <Link to="/" className="text-2xl text-black font-sans">
-                OluwibeFaith
-              </Link>
-              <button
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
+              >
+                <Link to="/" className="text-2xl text-black font-sans">
+                  OluwibeFaith
+                </Link>
+              </motion.div>
+              <motion.button
                 onClick={toggleMenu}
                 aria-label="Close menu"
                 className="text-2xl text-black"
+                initial={{ opacity: 0, rotate: -90 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                transition={{ delay: 0.2, duration: 0.3 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <MdClose />
-              </button>
+              </motion.button>
             </div>
             <motion.div
               variants={containerVars}
@@ -155,20 +196,25 @@ const MobileMenu: React.FC<{
               exit="initial"
               className="flex flex-col h-full justify-center items-center space-y-8"
             >
-              {navLinks.map((link) => (
+              {navLinks.map((link, index) => (
                 <motion.div
                   key={link.title}
                   variants={mobileLinkVars}
                   className="overflow-hidden"
+                  custom={index}
                 >
                   <NavLink
                     {...link}
                     onClick={toggleMenu}
-                    className="text-4xl lg:text-5xl font-serif"
+                    className="text-4xl lg:text-5xl font-serif hover:text-gray-700"
                   />
                 </motion.div>
               ))}
-              <motion.div variants={mobileLinkVars}>
+              <motion.div
+                variants={mobileLinkVars}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 <EmailButton />
               </motion.div>
             </motion.div>
