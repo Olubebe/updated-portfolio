@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { MdClose } from "react-icons/md";
 import { AnimatePresence, motion } from "framer-motion";
-import CV from "../assets/Copy of Oluwibe-Faith CV002.docx.pdf";
+import CV from "../assets/cv01.pdf";
 
 interface NavLinkProps {
   title: string;
