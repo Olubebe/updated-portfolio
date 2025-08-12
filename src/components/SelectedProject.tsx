@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { motion, useAnimation } from "framer-motion";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { getAllProjects } from "../projectUtils";
 import { ProjectType } from "../types";
-import {
-  HiOutlineArrowNarrowRight,
-  HiOutlineExternalLink,
-} from "react-icons/hi";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
 const ImageSkeleton = () => (
   <div className="w-full h-full bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-pulse rounded">
@@ -75,7 +72,7 @@ const ProjectCard = ({
   project: ProjectType;
   index: number;
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  // Removed unused isHovered and setIsHovered state
   const navigate = useNavigate();
   const handleNavigate = navigateToProject(navigate);
 
@@ -160,10 +157,7 @@ const ProjectCard = ({
       >
         {/* Image container with advanced effects */}
         <div className="relative overflow-hidden h-56">
-          <motion.div
-            variants={imageVariants}
-            animate={isHovered ? "hover" : "initial"}
-          >
+          <motion.div variants={imageVariants} animate="initial">
             <LazyImage
               src={project.image}
               alt={project.title}
@@ -171,11 +165,10 @@ const ProjectCard = ({
             />
           </motion.div>
 
-          {/* Animated gradient overlay */}
           <motion.div
             className="absolute inset-0"
             variants={overlayVariants}
-            animate={isHovered ? "hover" : "initial"}
+            animate="initial"
           />
 
           {/* Bottom gradient fade */}
@@ -185,7 +178,7 @@ const ProjectCard = ({
           <motion.div
             className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-pink-500 to-blue-400"
             initial={{ scaleX: 0, originX: 0 }}
-            animate={{ scaleX: isHovered ? 1 : 0 }}
+            animate={{ scaleX: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           />
 
@@ -194,8 +187,8 @@ const ProjectCard = ({
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             initial={{ opacity: 0, scale: 0 }}
             animate={{
-              opacity: isHovered ? 1 : 0,
-              scale: isHovered ? 1 : 0,
+              opacity: 0,
+              scale: 0,
             }}
             transition={{ duration: 0.3, delay: 0.1 }}
           >
@@ -215,9 +208,9 @@ const ProjectCard = ({
             <motion.div
               initial={{ opacity: 0, x: -10, rotate: -45 }}
               animate={{
-                opacity: isHovered ? 1 : 0,
-                x: isHovered ? 0 : -10,
-                rotate: isHovered ? 0 : -45,
+                opacity: 0,
+                x: -10,
+                rotate: -45,
               }}
               transition={{ duration: 0.3 }}
               className="flex-shrink-0 ml-2"
@@ -229,8 +222,8 @@ const ProjectCard = ({
           <motion.p
             className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3"
             animate={{
-              opacity: isHovered ? 1 : 0.8,
-              y: isHovered ? 0 : 5,
+              opacity: 0.8,
+              y: 5,
             }}
             transition={{ duration: 0.3 }}
           >
@@ -273,13 +266,10 @@ const ProjectCard = ({
           </motion.div>
         </div>
 
-        {/* Subtle glow effect */}
         <motion.div
           className="absolute inset-0 rounded-3xl pointer-events-none"
           animate={{
-            boxShadow: isHovered
-              ? "inset 0 1px 0 rgba(255, 255, 255, 0.2)"
-              : "inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+            boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.1)",
           }}
           transition={{ duration: 0.3 }}
         />

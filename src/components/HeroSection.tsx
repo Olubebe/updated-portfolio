@@ -1,23 +1,14 @@
 import React, { useRef, useState } from "react";
-import { MdArrowDownward } from "react-icons/md";
 import { motion } from "framer-motion";
-import {
-  FaLinkedin,
-  FaGithub,
-  FaTwitter,
-  FaEnvelope,
-  FaCoffee,
-} from "react-icons/fa";
 import SelectedProjects from "./SelectedProject";
 
-// Mock SelectedProject component - replace with your actual component
-const SelectedProject = () => (
-  <div className="min-h-screen bg-white flex items-center justify-center">
-    <h2 className="text-3xl font-bold text-gray-800">
-      Selected Projects Section
-    </h2>
-  </div>
-);
+// const SelectedProject = () => (
+//   <div className="min-h-screen bg-white flex items-center justify-center">
+//     <h2 className="text-3xl font-bold text-gray-800">
+//       Selected Projects Section
+//     </h2>
+//   </div>
+// );
 
 const HeroSection: React.FC = () => {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -42,24 +33,24 @@ const HeroSection: React.FC = () => {
     }),
   };
 
-  const socialIconVariants = {
-    hidden: { opacity: 0, x: -20, filter: "blur(8px)" },
-    visible: (custom: number) => ({
-      opacity: 1,
-      x: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.6,
-        delay: custom * 0.1,
-        ease: "easeOut",
-      },
-    }),
-    hover: {
-      scale: 1.1,
-      backgroundColor: "rgba(59, 130, 246, 0.1)",
-      transition: { duration: 0.2 },
-    },
-  };
+  // const socialIconVariants = {
+  //   hidden: { opacity: 0, x: -20, filter: "blur(8px)" },
+  //   visible: (custom: number) => ({
+  //     opacity: 1,
+  //     x: 0,
+  //     filter: "blur(0px)",
+  //     transition: {
+  //       duration: 0.6,
+  //       delay: custom * 0.1,
+  //       ease: "easeOut",
+  //     },
+  //   }),
+  //   hover: {
+  //     scale: 1.1,
+  //     backgroundColor: "rgba(59, 130, 246, 0.1)",
+  //     transition: { duration: 0.2 },
+  //   },
+  // };
 
   const profileImageVariants = {
     hidden: {

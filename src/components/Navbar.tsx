@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   AnimatePresence,
   motion,
@@ -9,13 +9,13 @@ import { HiMiniBars3BottomRight, HiOutlineArrowUpRight } from "react-icons/hi2";
 import { MdClose } from "react-icons/md";
 import CV from "../assets/Copy of Oluwibe-Faith CV002.docx (4).pdf";
 
-interface NavLinkProps {
-  title: string;
-  href: string;
-  onClick?: () => void;
-  className?: string;
-  target?: string;
-}
+// interface NavLinkProps {
+//   title: string;
+//   href: string;
+//   onClick?: () => void;
+//   className?: string;
+//   target?: string;
+// }
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,7 +97,7 @@ const Navbar = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {navLinks.map((link, index) => (
+              {navLinks.map((link) => (
                 <NavLink
                   key={link.title}
                   {...link}
@@ -292,7 +292,7 @@ const MobileMenu = ({ isOpen, toggleMenu, navLinks }: MobileMenuProps) => {
           >
             {/* Navigation Links */}
             <div className="flex-1 flex flex-col justify-center items-center space-y-8 px-6 pt-20">
-              {navLinks.map((link, index) => (
+              {navLinks.map((link) => (
                 <motion.div
                   key={link.title}
                   variants={itemVariants}

@@ -1,11 +1,17 @@
-import React, { useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   HiOutlineArrowNarrowRight,
   HiOutlineExternalLink,
 } from "react-icons/hi";
+import { ProjectType } from "../types";
 
-const ProjectCard = ({ project, index }) => {
+interface ProjectCardProps {
+  project: ProjectType;
+  index: number;
+}
+
+export const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const cardVariants = {
@@ -88,8 +94,7 @@ const ProjectCard = ({ project, index }) => {
           transformStyle: "preserve-3d",
         }}
       >
-        {/* Floating category badge */}
-        <motion.div
+        {/* <motion.div
           className="absolute top-4 left-4 z-20 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm"
           initial={{ opacity: 0, x: -20 }}
           animate={{
@@ -100,16 +105,15 @@ const ProjectCard = ({ project, index }) => {
           transition={{ duration: 0.3 }}
         >
           {project.category}
-        </motion.div>
+        </motion.div> */}
 
-        {/* Year badge */}
-        <motion.div
+        {/* <motion.div
           className="absolute top-4 right-4 z-20 bg-white/20 backdrop-blur-md text-white px-2 py-1 rounded-lg text-xs font-medium"
           initial={{ opacity: 0.7 }}
           animate={{ opacity: isHovered ? 1 : 0.7 }}
         >
           {project.year}
-        </motion.div>
+        </motion.div> */}
 
         {/* Image container with advanced effects */}
         <div className="relative overflow-hidden h-56">
