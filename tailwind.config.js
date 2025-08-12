@@ -3,7 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      sans: ["Satisfy"],
+      sans: ["Space Grotesk"],
       serif: ["Montserrat"],
       cursive: ["Nanum Myeongjo"],
     },

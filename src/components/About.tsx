@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const About = () => {
-  // Text reveal animation variants
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (custom: number) => ({
@@ -16,7 +15,6 @@ const About = () => {
     }),
   };
 
-  // Image animation variants
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: {

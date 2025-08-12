@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
 
-// Assume we have a getProjectById function to fetch project details
 import { getProjectById } from "../projectUtils";
 
 const DetailedProjectPage: React.FC = () => {

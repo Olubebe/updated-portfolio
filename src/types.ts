@@ -5,7 +5,7 @@ export interface ProjectType {
   longDescription: string;
   image: string;
   stack: string[];
-  github: string;
+  github?: string;
   demo: string;
-  features?: string[]; // Optional, as it wasn't present in all project examples
+  features?: string[];
 }

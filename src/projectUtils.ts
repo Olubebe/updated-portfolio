@@ -1,12 +1,31 @@
-// projectUtils.ts
 import { ProjectType } from "./types";
 
-// Re-export ProjectType
 export type { ProjectType };
 
 const projects: ProjectType[] = [
   {
     id: 1,
+    image:
+      "https://res.cloudinary.com/olubebe/image/upload/v1754947914/Screenshot_2025-08-11_222542_k6qzzy.png",
+    title: "Scullock Website",
+    description:
+      "A professional corporate website for Scullock Limited, showcasing comprehensive security solutions including CCTV surveillance, access control systems, and smart home integration with modern design and responsive functionality.",
+    longDescription:
+      "A professional website for Scullock Limited, a leading security solutions company specializing in advanced electronic security systems. The site showcases comprehensive security services including CCTV surveillance, access control systems, smart home integration, and fire alarm solutions for residential, commercial, and corporate facilities.",
+    stack: ["React", "Redux", "CSS", "Responsive Design"],
+    demo: "https://www.scullocklimited.com",
+    features: [
+      "Modern responsive design with professional aesthetic",
+      "Service showcase with detailed solution descriptions",
+      "Client testimonials and case studies section",
+      "Partnership highlights with leading OEM brands",
+      "Contact forms and 24/7 availability messaging",
+      "Mobile-optimized user experience",
+      "Professional branding and visual identity",
+    ],
+  },
+  {
+    id: 2,
     image:
       "https://res.cloudinary.com/olubebe/image/upload/v1709317294/image2_pbkwzb.png",
     title: "Ecommerce Website",
